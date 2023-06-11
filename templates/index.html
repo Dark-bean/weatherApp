@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <style>
+            table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }
+
+            td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            }
+
+            tr:nth-child(even) {
+            background-color: #dddddd;
+            }
+
+            #weather {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Weather</th>
+                <th>Wind</th>
+            </tr>
+            {% for index in range(5)%}
+
+           <tr>
+                <td>{{data['daily'][index].dt | ctime}}</td>
+                <td>{{data['daily'][index]['temp'].max}}°C</td>
+                <td>{{data['hourly'][index].humidity}}</td>
+                <td><img src="/static/icons/{{data['daily'][index].weather[0].icon}}@2x.png" alt=""></td>
+                <td>{{data['daily'][index].wind_speed}} km/h</td>
+           </tr>
+            {% endfor%}
+        </table>
+        <p>Timezone:{{data['timezone']}}</p>
+    </body>
+</html>

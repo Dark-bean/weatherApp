@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <br>
+
+    <h1>{% block title %} Add a New Message {% endblock %}</h1>
+    <form method="post">
+        <label for="title">City</label>
+        <br>
+        <input type="text" name="city"
+               placeholder="city"
+               value="{{ request.form['city'] }}"></input>
+        <br>
+
+        <label for="title">country</label>
+        <br>
+        <input type="text" name="country"
+               placeholder="country"
+               value="{{ request.form['country'] }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
