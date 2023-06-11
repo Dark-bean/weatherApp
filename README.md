@@ -1,7 +1,7 @@
 # weatherApp
 #HOW TO:
 
-#1. Create a virtual env and dowload the requirments using command "pip install -r requirements.txt" \n
+#1. Create a virtual env and dowload the requirments using command "pip install -r requirements.txt" <br />
 #2. run command "python3 wApp.py
 #3. Naviagte to the server App is running on (i.e Local host)
 #4. Add a valid 'city' and matching 'country'
