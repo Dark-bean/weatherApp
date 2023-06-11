@@ -60,12 +60,11 @@ def home_page():
             response = requests.get(api_url + city, headers={'X-Api-Key': 'N9VFsiD8wyKHK03tSE9bng==Y2BYHS5idQ1Z4kql'})
             print(response.json())
             if response.status_code == requests.codes.ok and response.json():
-                print("WHAT AM I DOING HERE\n")
+
                 data= response.json()
                 lat= data[0]['latitude']
                 longi=data[0]['longitude']
             else:
-                print("\nIM HERE\n")
                 flash("NOT A CITY/Country")
                 return redirect(url_for('home_page'))
                # print("Error:", response.status_code, response.text)
